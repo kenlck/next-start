@@ -8,6 +8,7 @@ module.exports = {
   ignorePatterns: ['node_modules/*', '**/*.md', '.next/*', '.out/*', '!.prettierrc.js'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   plugins: ['tailwindcss'],
   extends: ['prettier', 'plugin:prettier/recommended', 'next', 'plugin:tailwindcss/recommended'],
+
   overrides: [
     // This configuration will apply only to TypeScript files
     {
@@ -56,6 +57,8 @@ module.exports = {
         // "@typescript-eslint/explicit-module-boundary-types": "off",
 
         'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
+
+        'tailwindcss/no-custom-classname': ['off'],
       },
     },
   ],

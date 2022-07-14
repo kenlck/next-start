@@ -6,7 +6,7 @@ module.exports = {
   },
   parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
   ignorePatterns: ['node_modules/*', '**/*.md', '.next/*', '.out/*', '!.prettierrc.js'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
-  plugins: ['tailwindcss'],
+  plugins: ['tailwindcss', require('prettier-plugin-tailwindcss')],
   extends: ['prettier', 'plugin:prettier/recommended', 'next', 'plugin:tailwindcss/recommended'],
 
   overrides: [

@@ -1,10 +1,11 @@
 // src/server/trpc/routers/hello.ts
-import { initTRPC } from "@trpc/server";
+import { publicProcedure, protectedProcedure } from "../procedures";
 
-const t = initTRPC.create();
-
-export const helloRouter = t.router({
-  hello: t.procedure.query(() => {
+export const helloRouter = {
+  hello: publicProcedure.query(() => {
     return { greeting: "Hello from tRPC!" };
   }),
-});
+  secret: protectedProcedure.query(({ ctx }) => {
+    return { secret: `Authenticated as ${ctx.user?.email ?? ctx.user?.id}` };
+  }),
+};

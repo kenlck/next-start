@@ -1,8 +1,7 @@
-import { PrismaClient } from "@/generated/prisma";
 import { compareSync } from "bcryptjs";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import prisma from "./db";
+import { prisma } from "./db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
@@ -33,10 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         // Here you would verify the password, e.g., using bcrypt
-        const isValidPassword = compareSync(
-          credentials.password as string,
-          user.password
-        );
+        const isValidPassword = compareSync(credentials.password as string, user.password);
 
         if (!isValidPassword) {
           // throw new Error("Invalid email or password");

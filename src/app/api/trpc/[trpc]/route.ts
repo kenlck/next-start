@@ -1,6 +1,6 @@
 // src/app/api/trpc/[trpc]/route.ts
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "@/server/trpc/router";
+import { appRouter } from "@/server/trpc/routers";
 import { NextRequest } from "next/server";
 import { auth } from "@/lib/auth";
 

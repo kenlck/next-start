@@ -1,22 +1,18 @@
 // Home page with engaging design and a button to redirect to /login
-"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-import { trpc } from "@/utils/trpc";
 import React from "react";
 
 export default function Home() {
-  const { data, isLoading, error } = trpc.hello.hello.useQuery();
+  // const { data, isLoading, error } = trpc.hello.hello.useQuery();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6">
       <div className="mb-6">
         <div className="text-center">
-          <span className="font-mono text-sm text-purple-700 bg-purple-50 px-3 py-1 rounded">
-            {isLoading ? "Loading greeting..." : error ? "Error loading greeting" : data?.greeting}
-          </span>
+          <span className="font-mono text-sm text-purple-700 bg-purple-50 px-3 py-1 rounded"></span>
         </div>
       </div>
       <div className="flex flex-col items-center gap-8 max-w-lg w-full">

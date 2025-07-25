@@ -1,11 +1,11 @@
 // src/server/trpc/routers/index.ts
 import { initTRPC } from "@trpc/server";
-import { helloRouter } from "./hello";
+import { authRouter } from "./auth";
 
 const t = initTRPC.create();
 
 export const appRouter = t.router({
-  hello: helloRouter,
+  auth: authRouter,
 });
 
 export type AppRouter = typeof appRouter;
